@@ -83,25 +83,22 @@
     <div class="provide" id="provide">
         <div class="container">
             <div class="block__head inverse">
-                <h2 class="block__title">We provide you everything</h2>
-                <p class="block__text">Maybe not everything, but we provide you some stuff.</p>
+                <h2 class="block__title"><?=CFS()->get('provide_title'); ?></h2>
+                <p class="block__text"><?=CFS()->get('provide_text'); ?></p>
             </div>
             <div class="provide__inner">
-                <div class="provide__item">
-                    <i class="icon-chart-line"></i>
-                    <h3 class="provide__item-title">Some Analytics</h3>
-                    <p class="provide__item-text">Aenean nisi lectus, convallis non lorem sit amet, rhoncus malesuada justo</p>
-                </div>
-                <div class="provide__item">
-                    <i class="icon-heart"></i>
-                    <h3 class="provide__item-title">We provide you love</h3>
-                    <p class="provide__item-text">Aenean nisi lectus, convallis non lorem sit amet, rhoncus malesuada justo</p>
-                </div>
-                <div class="provide__item">
-                    <i class="icon-upload-cloud-outline"></i>
-                    <h3 class="provide__item-title">And Some Cloud</h3>
-                    <p class="provide__item-text">Aenean nisi lectus, convallis non lorem sit amet, rhoncus malesuada justo</p>
-                </div>
+                <?php
+                    $loop = CFS()->get('provide_card');
+                    foreach($loop as $row){
+                        ?>
+                            <div class="provide__item">
+                                <img src="<?= $row['provide_card_img']?>" alt="">
+                                <h3 class="provide__item-title"><?= $row['provide_card_title '] ?></h3>
+                                <p class="provide__item-text"><?= $row['provide_card_text'] ?></p>
+                            </div>
+                        <?php
+                        }
+                    ?>
             </div>
         </div>
     </div> 
