@@ -23,42 +23,60 @@
                 <p class="block__text"><?=CFS()->get('team_description'); ?></p>
             </div>
             <div class="team__inner">
-                <?php
-                $loop = CFS()->get('team_card');
-                foreach($loop as $row){
-                ?>
-                    <div class="team__item">
-                            <img class="team__item-img" src="<?= $row['team_img'] ?>" alt="">
-                            <h3 class="team__item-title"><?= $row['team_name'] ?></h3>
-                            <p class="team__item-text"><?= $row['team_post'] ?></p>
-                            <div class="team__icon-box">
-                                <?php
-                                    if(!empty($row['team_twitter']['url'])){
-                                        ?>
-                                        <a href="<?= $row['team_twitter']['url'] ?>" target="<?= $row['team_twitter']['target'] ?>"><i class="icon-twitter"></i></a>
-                                        <?php
-                                    }
-                                    if(!empty($row['team_instagram']['url'])){
-                                        ?>
-                                        <a href="<?= $row['team_instagram']['url'] ?>" target="<?= $row['team_instagram']['target'] ?>"><i class="icon-instagram"></i></a>
-                                        <?php
-                                    }
-                                    if(!empty($row['team_facebook']['url'])){
-                                        ?>
-                                        <a href="<?= $row['team_facebook']['url'] ?>" target="<?= $row['team_facebook']['target'] ?>"><i class="icon-facebook"></i></a>
-                                        <?php
-                                    }
-                                    if(!empty($row['team_vk']['url'])){
-                                        ?>
-                                        <a href="<?= $row['team_vk']['url'] ?>" target="<?= $row['team_vk']['target'] ?>"><i class="icon-vkontakte"></i></a>
-                                        <?php
-                                    }
-                                ?>
-                            </div>
-                        </div>
+                <!-- Slider main container -->
+                <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
                     <?php
-                    }
-                ?> 
+                        $loop = CFS()->get('team_card');
+                        foreach($loop as $row){
+                            ?>
+                        <div class="swiper-slide">
+                            <div class="team__item">
+                                    <img class="team__item-img" src="<?= $row['team_img'] ?>" alt="">
+                                    <h3 class="team__item-title"><?= $row['team_name'] ?></h3>
+                                    <p class="team__item-text"><?= $row['team_post'] ?></p>
+                                    <div class="team__icon-box">
+                                        <?php
+                                            if(!empty($row['team_twitter']['url'])){
+                                                ?>
+                                                <a href="<?= $row['team_twitter']['url'] ?>" target="<?= $row['team_twitter']['target'] ?>"><i class="icon-twitter"></i></a>
+                                                <?php
+                                            }
+                                            if(!empty($row['team_instagram']['url'])){
+                                                ?>
+                                                <a href="<?= $row['team_instagram']['url'] ?>" target="<?= $row['team_instagram']['target'] ?>"><i class="icon-instagram"></i></a>
+                                                <?php
+                                            }
+                                            if(!empty($row['team_facebook']['url'])){
+                                                ?>
+                                                <a href="<?= $row['team_facebook']['url'] ?>" target="<?= $row['team_facebook']['target'] ?>"><i class="icon-facebook"></i></a>
+                                                <?php
+                                            }
+                                            if(!empty($row['team_vk']['url'])){
+                                                ?>
+                                                <a href="<?= $row['team_vk']['url'] ?>" target="<?= $row['team_vk']['target'] ?>"><i class="icon-vkontakte"></i></a>
+                                                <?php
+                                            }
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                    ?> 
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
+                <!-- If we need scrollbar -->
+                <div class="swiper-scrollbar"></div>
+                </div>
             </div>
         </div>
     </div>
