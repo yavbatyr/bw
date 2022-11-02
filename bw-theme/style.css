@@ -206,12 +206,15 @@ body {
 }
 .provide__inner {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding-top: 138px;
+    flex-wrap: wrap;
 }
 .provide__item {
     text-align: center;
-    max-width: 335px;
+    max-width: 415px;
+    padding: 0 40px;
+    width: 33%;
 }
 .provide__item i {
     color: #fff;
